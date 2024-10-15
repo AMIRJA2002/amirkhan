@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>{% block title %} {% endblock %}</title>
+    
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<body>
+    {% include 'message.html' %}
+<!-- ##### Header Area Start ##### -->
+	<header class="header-area">
+
+		<!-- Top Header Area -->
+		<div class="top-header-area bg-img bg-overlay" style="background-image: url(../media/img/bg-img/header.jpg);">
+			<div class="container h-100">
+				<div class="row h-100 align-items-center justify-content-between">
+					<div class="col-12 col-sm-6">
+						<!-- Top Social Info -->
+						<div class="top-social-info">
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-5 col-xl-4">
+						<!-- Top Search Area -->
+						<div class="top-search-area">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Logo Area -->
+		<div class="logo-area">
+			<a href="{% url 'home:home' %}"><h1>AMIRKHAN</h1></a>
+		</div>
+
+		<!-- Navbar Area -->
+		<div class="bueno-main-menu" id="sticker">
+			<div class="classy-nav-container breakpoint-off">
+				<div class="container">
+					<!-- Menu -->
+					<nav class="classy-navbar justify-content-between" id="buenoNav">
+
+						<!-- Toggler -->
+<!--						<div id="toggler"><img src="../media/img/core-img/toggler.png" alt=""></div>-->
+
+						<!-- Navbar Toggler -->
+						<div class="classy-navbar-toggler">
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
+						</div>
+
+						<!-- Menu -->
+						<div class="classy-menu">
+
+							<!-- Close Button -->
+							<div class="classycloseIcon">
+								<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+							</div>
+
+							<!-- Nav Start -->
+							<div class="classynav">
+								<ul>
+									<li><a href="{% url 'home:home' %}">خانه</a></li>
+									<li><a href="{% url 'home:order' %}">ثبت سفارش</a></li>
+									<li><a href="{% url 'home:post-list' %}">بلاگ</a></li>
+									<li><a href="{% url 'home:contact' %}">تماس با ما</a></li>
+								</ul>
+
+								<!-- Login/Register -->
+								<div class="login-area">
+                                    {% if request.user.is_authenticated %}
+                                        <a href="{% url 'home:user-order' %}">  خوش آمدید{{ request.user.full_name }}</a>
+                                    {% else %}
+									<a href="{% url 'account:login' %}">ورود / عضویت</a>
+                                    {% endif %}
+								</div>
+							</div>
+							<!-- Nav End -->
+
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ##### Header Area End ##### -->
+
+
+    {% block main %}
+    {% endblock %}
+
+    
+	<!-- ##### Instagram Area Start ##### -->
+	<div class="instagram-feed-area d-flex flex-wrap">
+		<style>
+			.instagram-feed-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* فاصله بین تصاویر */
+    justify-content: center; /* مرکز کردن تصاویر */
+}
+
+.single-instagram {
+    position: relative;
+    overflow: hidden;
+    width: 150px; /* عرض ثابت برای هر تصویر */
+    height: 150px; /* ارتفاع ثابت برای هر تصویر */
+}
+
+.single-instagram img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* برای برش مناسب تصاویر به اندازه باکس */
+    transition: transform 0.3s ease; /* برای افکت زوم نرم */
+}
+
+.single-instagram:hover img {
+    transform: scale(1.1); /* زوم شدن تصویر هنگام هاور */
+}
+
+.img-zoom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* پس‌زمینه نیمه‌شفاف */
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.single-instagram:hover .img-zoom {
+    opacity: 1; /* نمایش آیکن زوم هنگام هاور */
+}
+
+		</style>
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta1.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta1.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta2.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta2.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta3.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta3.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta4.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta4.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta5.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta5.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta6.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta6.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta7.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta7.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta8.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta8.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta9.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta9.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+
+		<!-- Single Instagram -->
+		<div class="single-instagram">
+			<img src="../media/img/bg-img/insta10.jpg" alt="">
+			<!-- Image Zoom -->
+			<a href="../media/img/bg-img/insta10.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+		</div>
+	</div>
+	<!-- ##### Instagram Area End ##### -->
+
+
+    
+	<!-- ##### Footer Area Start ##### -->
+	<footer class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 ">
+					<!-- Copywrite Text -->
+					<p class="copywrite-text"><a href="#"></a></p>
+					<p class="copywrite-text"><a href="#"></a><strong>ساخته شده با ❤️ توسط تیم فالکن</strong></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ##### Footer Area Start ##### -->
+
+	<!-- ##### All Javascript Script ##### -->
+	<!-- jQuery-2.2.4 js -->
+	<script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+<!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Custom js -->
+    <script  src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

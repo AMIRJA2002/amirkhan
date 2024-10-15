@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    سفارش ها | رستوران امیرخان
+{% endblock %}
+{% block main %}
+<body>
+<br>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            margin: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #4CAF50;
+            direction: rtl;
+
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+        td img {
+            width: 80px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+        }
+        input[type="hidden"] {
+            display: none;
+        }
+        .submit-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .total-price {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .total-price span {
+            color: #d32f2f;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+<div class="form-container">
+    <h2>ثبت سفارش</h2>
+    {% include 'message.html' %}
+
+    <form action="{% url 'home:order' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>تصویر محصول</th>
+                    <th>نام محصول</th>
+                    <th>قیمت</th>
+                    <th>تعداد</th>
+                    <th>توضیحات</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><img src="{{ product.image.url }}" alt="{{ product.name }}"></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.format_number }} تومان</td>
+                    <td><input type="number" name="quantity_{{ forloop.counter }}" min="0" value="0" data-price="{{ product.price }}" oninput="updateTotalPrice()"></td>
+                    <td>{{ product.description }}</td>
+                    <input type="hidden" name="product_id_{{ forloop.counter }}" value="{{ product.id }}">
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="total-price">
+            قیمت کل: <span id="total-price">۰</span> تومان
+        </div>
+
+        <button type="submit" class="submit-btn">ثبت سفارش</button>
+    </form>
+</div>
+
+<script>
+    function updateTotalPrice() {
+        let totalPrice = 0;
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const quantityInput = row.querySelector('input[type="number"]');
+            const price = parseFloat(quantityInput.getAttribute('data-price'));
+            const quantity = parseInt(quantityInput.value, 10);
+            if (quantity > 0) {
+                totalPrice += price * quantity;
+            }
+        });
+        document.getElementById('total-price').textContent = totalPrice.toLocaleString(); // Format total price with comma separator
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateTotalPrice(); // Initialize total price on page load
+    });
+</script>
+<br><br><br>
+</body>
+{% endblock %}

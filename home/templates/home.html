@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    خانه | رستوران امیرخان
+{% endblock %}
+
+{% block main %}
+    <body class="rtl">
+
+    {% include 'loading.html' %}
+
+
+	<!-- ##### Hero Area Start ##### -->
+	<div class="hero-area">
+		<!-- Hero Post Slides -->
+		<div class="hero-post-slides owl-carousel">
+            {% for post in last_five_posts %}
+			<!-- Single Slide -->
+			<div class="single-slide">
+				<!-- Blog Thumbnail -->
+				<div class="blog-thumbnail">
+					<a href="{% url 'home:post-detail' post.id %}"><img src="{{ post.image.url }}" alt=""></a>
+				</div>
+
+				<!-- Blog Content -->
+				<div class="blog-content-bg">
+					<div class="blog-content">
+						<a href="{% url 'home:post-detail' post.id %}" class="post-tag">غذای سلامتی</a>
+						<a href="{% url 'home:post-detail' post.id %}" class="post-title">{{ post.title }}</a>
+						<div class="post-meta">
+							<a href="{% url 'home:post-detail' post.id %}" class="post-date">{{ post.get_jalali_date }}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- ##### Hero Area End ##### -->
+
+    <br><br>
+	<!-- ##### Big Posts Area Start ##### -->
+	<div class="big-posts-area mb-50">
+		<div class="container">
+			<!-- Single Big Post Area -->
+            {% for random_post in random_posts %}
+			<div class="row align-items-center">
+				<div class="col-12 col-md-6">
+					<div class="big-post-thumbnail mb-50">
+						<img src="{{ random_post.image.url }}" alt="">
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="big-post-content text-center mb-50">
+						<a href="#" class="post-tag">غذای سلامتی</a>
+						<a href="#" class="post-title">{{ random_post.title}}</a>
+						<div class="post-meta">
+							<a href="#" class="post-date">{{ random_post.get_jalali_date}}</a>
+						</div>
+						<p>{{ random_post.body }}</p>
+						<a href="{% url 'home:post-detail' random_post.id %}" class="btn bueno-btn">بیشتر بدانید</a>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- ##### Big Posts Area End ##### -->
+	<!-- ##### Posts Area End ##### -->
+
+	<!-- ##### Treading Post Area Start ##### -->
+	<div class="treading-post-area" id="treadingPost">
+		<div class="close-icon">
+			<i class="fa fa-times"></i>
+		</div>
+
+		<h4>مطالب پربازدید</h4>
+
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="../media/img/bg-img/9.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">بهترین</a>
+				<a href="#" class="post-title">صبحانه اختصاصی</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">22 آبان 1398</a>
+					<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="../media/img/bg-img/10.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">بهترین</a>
+				<a href="#" class="post-title">قارچ سوخاری</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">22 آبان 1398</a>
+					<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="../media/img/bg-img/11.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">بهترین</a>
+				<a href="#" class="post-title">کیک تولد شکلاتی</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">22 آبان 1398</a>
+					<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="../media/img/bg-img/9.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">بهترین</a>
+				<a href="#" class="post-title">صبحانه اختصاصی</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">22 آبان 1398</a>
+					<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="../media/img/bg-img/10.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">بهترین</a>
+				<a href="#" class="post-title">قارچ سوخاری</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">22 آبان 1398</a>
+					<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Single Blog Post -->
+		<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+			<!-- Blog Thumbnail -->
+			<div class="blog-thumbnail">
+				<img src="../media/img/bg-img/11.jpg" alt="">
+			</div>
+			<!-- Blog Content -->
+			<div class="blog-content">
+				<a href="#" class="post-tag">بهترین</a>
+				<a href="#" class="post-title">کیک تولد شکلاتی</a>
+				<div class="post-meta">
+					<a href="#" class="post-date">22 آبان 1398</a>
+					<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Treading Post Area End ##### -->
+
+    </body><!-- This template has been downloaded from Webrubik.com -->
+</body><!-- This template has been downloaded from Webrubik.com -->
+</html>
+
+{% endblock %}

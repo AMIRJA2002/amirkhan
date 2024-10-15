@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}تماس با ما | رستوران امیرخان {% endblock %}
+
+{% block main %}
+<!-- ##### Contact Area Start ##### -->
+<section class="contact-area section-padding-100">
+    {% include 'loading.html' %}
+    {% include 'message.html' %}
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-8 col-xl-9">
+				<div class="contact-content mb-100">
+					<h4 class="mb-50">با ما در تماس باشید</h4>
+					<p>لطفا نظرات، پیشنهادات و انتقادات سازنده خود را با ما در میان بگذارید.</p>
+
+					<div class="row align-items-center mt-30 mb-50">
+						<div class="col-12 col-lg-4">
+							<!-- Single Contact Info -->
+							<div class="single-contact-info d-flex align-items-center">
+								<div class="icon mr-15">
+									<img src="../media/img/core-img/placeholder.png" alt="">
+								</div>
+								<p>تهران، شریف اباد، جاده کلین</p>
+							</div>
+
+							<!-- Single Contact Info -->
+							<div class="single-contact-info d-flex align-items-center">
+								<div class="icon mr-15">
+									<img src="../media/img/core-img/smartphone.png" alt="">
+								</div>
+								<p>021 3641 2600<br> 021 3641 2611</p>
+							</div>
+
+							<!-- Single Contact Info -->
+							<div class="single-contact-info d-flex align-items-center">
+								<div class="icon mr-15">
+									<img src="../media/img/core-img/message.png" alt="">
+								</div>
+								<p>info@amirkhan-complex.com</p>
+							</div>
+						</div>
+						<div class="col-12 col-lg-8">
+							<!-- ##### Google Maps ##### -->
+							<div class="map-area">
+{#								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22236.40558254599!2d-118.25292394686001!3d34.057682914027104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2z4Kay4Ka4IOCmj-CmnuCnjeCmnOCnh-CmsuCnh-CmuCwg4KaV4KeN4Kav4Ka-4Kay4Ka_4Kar4KeL4Kaw4KeN4Kao4Ka_4Kav4Ka84Ka-LCDgpq7gpr7gprDgp43gppXgpr_gpqgg4Kav4KeB4KaV4KeN4Kak4Kaw4Ka-4Ka34KeN4Kaf4KeN4Kaw!5e0!3m2!1sbn!2sbd!4v1532328708137" allowfullscreen></iframe>#}
+							</div>
+						</div>
+					</div>
+
+					<!-- Contact Form Area -->
+					<div class="contact-form-area mb-70">
+						<h4 class="mb-50">ارسال پیام</h4>
+
+						<form action="{% url 'home:contact' %}" method="post">
+                            {% csrf_token %}
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<input name='fullname' type="text" class="form-control" id="name" placeholder="نام شما">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<input name='user-email' type="email" class="form-control" id="email" placeholder="پست الکترونیک">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="متن پیام"></textarea>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn bueno-btn mt-30" type="submit">ارسال پیام</button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+<!-- ##### Treading Post Area Start ##### -->
+<div class="treading-post-area" id="treadingPost">
+	<div class="close-icon">
+		<i class="fa fa-times"></i>
+	</div>
+
+	<h4>مطالب پربازدید</h4>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/11.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">کیک تولد شکلاتی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/11.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">کیک تولد شکلاتی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/11.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">کیک تولد شکلاتی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ##### Treading Post Area End ##### -->
+</body><!-- This template has been downloaded from Webrubik.com --></body><!-- This template has been downloaded from Webrubik.com -->
+{% endblock %}

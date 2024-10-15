@@ -1,0 +1,342 @@
+{% extends 'base.html' %}
+{% block title %}
+    مقاله | رستوران امیرخان
+{% endblock %}
+
+{% block main %}
+<body class="rtl">
+
+{% include 'loading.html' %}
+
+<!-- ##### Post Details Area Start ##### -->
+<section class="post-news-area section-padding-100-0 mb-70">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- Post Details Content Area -->
+			<div class="col-12 col-lg-8 col-xl-9">
+				<div class="post-details-content mb-100">
+					<div class="blog-thumbnail mb-50">
+						<img src={{ post.image.url }} alt="">
+					</div>
+					<div class="blog-content">
+						<a href="#" class="post-tag">غذای سلامتی</a>
+						<h4 class="post-title">{{ post.title }}</h4>
+						<div class="post-meta mb-50">
+							<a href="#" class="post-date">{{ post.get_jalali_date }}</a>
+						</div>
+						<p>{{ post.body }}</p>
+					</div>
+				</div>
+
+
+				<div class="post-a-comment-area mb-30 clearfix">
+					<h4 class="mb-50">ارسال نظر</h4>
+					<!-- ارسال پاسخ Form -->
+					<div class="contact-form-area">
+						<form action="{% url 'home:home' %}" method="post">
+                            {% csrf_token %}
+							<div class="row">
+								<div class="col-12 col-lg-6">
+									<input type="text" class="form-control" id="name" placeholder="نام شما*">
+								</div>
+								<div class="col-12 col-lg-6">
+									<input type="email" class="form-control" id="email" placeholder="پست الکترونیک*">
+								</div>
+								<div class="col-12">
+									<input type="text" class="form-control" id="subject" placeholder="وب سایت">
+								</div>
+								<div class="col-12">
+									<textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="نظر شما"></textarea>
+								</div>
+								<div class="col-12">
+									<button class="btn bueno-btn mt-30" type="submit">ثبت نظر</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sidebar Widget -->
+			<div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
+				<div class="sidebar-area">
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ##### Post Details Area End ##### -->
+
+<!-- ##### Treading Post Area Start ##### -->
+<div class="treading-post-area" id="treadingPost">
+	<div class="close-icon">
+		<i class="fa fa-times"></i>
+	</div>
+
+	<h4>مطالب پربازدید</h4>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/11.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">کیک تولد شکلاتی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/11.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">کیک تولد شکلاتی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>مقالات
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/9.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">صبحانه اختصاصی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/10.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">قارچ سوخاری</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Single Blog Post -->
+	<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+		<!-- Blog Thumbnail -->
+		<div class="blog-thumbnail">
+			<img src="../media/img/bg-img/11.jpg" alt="">
+		</div>
+		<!-- Blog Content -->
+		<div class="blog-content">
+			<a href="#" class="post-tag">بهترین</a>
+			<a href="#" class="post-title">کیک تولد شکلاتی</a>
+			<div class="post-meta">
+				<a href="#" class="post-date">22 آبان 1398</a>
+				<a href="#" class="post-author">توسط مصطفی کلانتری فرد</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ##### Treading Post Area End ##### -->
+
+<!-- ##### Instagram Area Start ##### -->
+<div class="instagram-feed-area d-flex flex-wrap">
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta1.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta1.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta2.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta2.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta3.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta3.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta4.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta4.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta5.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta5.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta6.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta6.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta7.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta7.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta8.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta8.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta9.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta9.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+
+	<!-- Single Instagram -->
+	<div class="single-instagram">
+		<img src="../media/img/bg-img/insta10.jpg" alt="">
+		<!-- Image Zoom -->
+		<a href="../media/img/bg-img/insta10.jpg" class="img-zoom" title="پست اینستاگرام">+</a>
+	</div>
+</div>
+</body>
+{% endblock %}

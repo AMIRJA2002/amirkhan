@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیست سفارشات | رستوران امیرخان</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .order-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .order-card h3 {
+            margin-top: 0;
+        }
+        .order-card .status {
+            font-weight: bold;
+            color: #4CAF50; /* رنگ سبز برای پرداخت شده */
+        }
+        .order-card .status.unpaid {
+            color: #f44336; /* رنگ قرمز برای پرداخت نشده */
+        }
+        .order-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .order-card ul li {
+            margin-bottom: 5px;
+        }
+        .order-card .total-price {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>لیست سفارشات</h1>
+
+<!-- نمایش کارت‌های سفارش -->
+{% for order in user_orders %}
+<div class="order-card">
+    <h3>سفارش شماره: {{ order.id }}</h3>
+    <ul>
+        {% for item in order.items.all %}
+        <li>{{ item.product.name }}: {{ item.quantity }} عدد</li>
+        {% endfor %}
+    </ul>
+    <div class="total-price">قیمت کل: {{ order.total_price }} تومان</div>
+    <div class="status {% if order.is_paid %}paid{% else %}unpaid{% endif %}">
+        وضعیت: {% if order.is_paid %}پرداخت شده{% else %}پرداخت نشده{% endif %}
+    </div>
+</div>
+    <br>
+{% endfor %}
+<!-- می‌توانید کارت‌های بیشتری برای سایر سفارشات اضافه کنید -->
+
+</body>
+</html>

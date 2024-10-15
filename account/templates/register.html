@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signup-form h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .signup-form label {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .signup-form input {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .signup-form button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .signup-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% include 'message.html' %}
+    <div class="container">
+        <form class="signup-form" action="{% url 'account:register' %}" method="post">
+            {% csrf_token %}
+            <h1>ثبت نام</h1>
+            <label for="phone">شماره موبایل</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="last_name">نام خانوادگی</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <label for="password">رمز عبور</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">ثبت نام</button>
+            <a href="{% url  'account:login' %}"><p>.برای ورود اینجا کلیک کنید</p></a>
+
+        </form>
+    </div>
+</body>
+</html>
