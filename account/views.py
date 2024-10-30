@@ -3,8 +3,10 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def user_login(request):
     if request.method == 'POST':
         phone = request.POST.get('phone')
@@ -21,6 +23,7 @@ def user_login(request):
     return render(request, 'login.html')
 
 
+@csrf_exempt
 def user_signup(request):
     if request.method == 'POST':
         phone = request.POST.get('phone')
