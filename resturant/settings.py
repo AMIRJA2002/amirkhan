@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z=35$4!(ys1-ne==2dbj@ryoki6wi(==1s8*@*jl66h9q44eb1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://amirkhan-complex.com']
 
 
 # Application definition
@@ -149,6 +149,10 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / "media"
 
+CORS_ALLOWED_ORIGINS = [
+     "https://amirkhan-complex.com",  # آدرس React در حالت توسعه
+     "https://www.amirkhan-complex.com",  # آدرس React در حالت تولید
+]
 
 
 # Default primary key field type
